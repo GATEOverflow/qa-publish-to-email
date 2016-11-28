@@ -8,8 +8,7 @@ class qa_html_theme_layer extends qa_html_theme_base {
 	public function q_view_buttons($q_view)
 	{
 		if (($this->template == 'question') && (!empty($q_view['form']))) {
-			$user_level = qa_get_logged_in_level();
-			if($user_level > 0)
+			if(qa_is_logged_in())
 			{
 				$postid=$q_view['raw']['postid'];
 				if(qa_opt("qa_follow_enabled")){
