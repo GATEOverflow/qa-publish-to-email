@@ -1,13 +1,13 @@
 <?php
 
 /*
-	Ali Tavakoli
+   Ali Tavakoli
 
-	File: qa-plugin/qa-publish-to-email/qa-publish-to-email.php
-	Version: 0.1
-	Date: 2014-04-11
-	Description: Event module class for publishing questions/answers/comments to email
-*/
+   File: qa-plugin/qa-publish-to-email/qa-publish-to-email.php
+   Version: 0.1
+   Date: 2014-04-11
+   Description: Event module class for publishing questions/answers/comments to email
+ */
 
 
 
@@ -98,88 +98,88 @@ class qa_publish_to_email_event
 		$themeoptions=$this->qa_theme_options();
 
 		return array(
-			'ok' => $saved ? 'Settings saved' : null,
+				'ok' => $saved ? 'Settings saved' : null,
 
-			'fields' => array(
-				array(
-					'label' => 'Enable Follow Option for Users:',
-					'type' => 'checkbox',
-					'value' => qa_opt('qa_follow_enabled'),
-					'tags' => 'NAME="qa_follow_enabled"',
-				),
-				array(
-					'label' => 'Notification email addresses:',
-					'type' => 'text',
-					'value' => qa_opt('plugin_publish2email_emails'),
-					'suffix' => '(separate multiple emails with commas or semicolons)',
-					'tags' => 'NAME="plugin_publish2email_emails_field"',
-				),
-				array(
-					'label' => 'Send notifications for new questions',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_notify_q_post'),
-					'tags' => 'NAME="plugin_publish2email_notify_q_post_field"',
-				),
-				array(
-					'label' => 'Send notifications for new answers',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_notify_a_post'),
-					'tags' => 'NAME="plugin_publish2email_notify_a_post_field"',
-				),
-				array(
-					'label' => 'Send notifications for new comments',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_notify_c_post'),
-					'tags' => 'NAME="plugin_publish2email_notify_c_post_field"',
-				),
-				array(
-					'label' => 'Notification email subject prefix:',
-					'type' => 'text',
-					'value' => qa_opt('plugin_publish2email_subject_prefix'),
-					'suffix' => 'This is inserted before the subject (but after the "RE: " for answers/comments)',
-					'tags' => 'NAME="plugin_publish2email_subject_prefix_field"',
-				),
-				array(
-					'label' => 'Only send emails for favorite categories (email addresses must be registered)',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_fav_categories_only'),
-					'tags' => 'NAME="plugin_publish2email_fav_cats_field"',
-				),
-				array(
-					'label' => 'Use Bcc instead of To for emails',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_use_bcc'),
-					'tags' => 'NAME="plugin_publish2email_use_bcc_field"',
-				),
-				array(
-					'label' => 'Send all emails as plain-text',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_plaintext_only'),
-					'tags' => 'NAME="plugin_publish2email_plaintext_only_field"',
-				),
-				array(
-					'label' => 'Theme for HTML emails:',
-					'type' => 'select',
-					'value' => @$themeoptions[qa_opt('plugin_publish2email_html_theme')],
-					'options' => $themeoptions,
-					'suffix' => 'This setting is ignored for plain-text emails',
-					'tags' => 'NAME="plugin_publish2email_html_theme_field"',
-				),
-				array(
-					'label' => 'Include dependent posts in email body (e.g. include questions when sending emails for answers)',
-					'type' => 'checkbox',
-					'value' => qa_opt('plugin_publish2email_show_trail'),
-					'tags' => 'NAME="plugin_publish2email_show_trail_field"',
-				),
-			),
+				'fields' => array(
+					array(
+						'label' => 'Enable Follow Option for Users:',
+						'type' => 'checkbox',
+						'value' => qa_opt('qa_follow_enabled'),
+						'tags' => 'NAME="qa_follow_enabled"',
+					     ),
+					array(
+						'label' => 'Notification email addresses:',
+						'type' => 'text',
+						'value' => qa_opt('plugin_publish2email_emails'),
+						'suffix' => '(separate multiple emails with commas or semicolons)',
+						'tags' => 'NAME="plugin_publish2email_emails_field"',
+					     ),
+					array(
+						'label' => 'Send notifications for new questions',
+						'type' => 'checkbox',
+						'value' => qa_opt('plugin_publish2email_notify_q_post'),
+						'tags' => 'NAME="plugin_publish2email_notify_q_post_field"',
+					     ),
+					array(
+						'label' => 'Send notifications for new answers',
+						'type' => 'checkbox',
+						'value' => qa_opt('plugin_publish2email_notify_a_post'),
+						'tags' => 'NAME="plugin_publish2email_notify_a_post_field"',
+					     ),
+					array(
+							'label' => 'Send notifications for new comments',
+							'type' => 'checkbox',
+							'value' => qa_opt('plugin_publish2email_notify_c_post'),
+							'tags' => 'NAME="plugin_publish2email_notify_c_post_field"',
+					     ),
+					array(
+							'label' => 'Notification email subject prefix:',
+							'type' => 'text',
+							'value' => qa_opt('plugin_publish2email_subject_prefix'),
+							'suffix' => 'This is inserted before the subject (but after the "RE: " for answers/comments)',
+							'tags' => 'NAME="plugin_publish2email_subject_prefix_field"',
+					     ),
+					array(
+							'label' => 'Only send emails for favorite categories (email addresses must be registered)',
+							'type' => 'checkbox',
+							'value' => qa_opt('plugin_publish2email_fav_categories_only'),
+							'tags' => 'NAME="plugin_publish2email_fav_cats_field"',
+					     ),
+					array(
+							'label' => 'Use Bcc instead of To for emails',
+							'type' => 'checkbox',
+							'value' => qa_opt('plugin_publish2email_use_bcc'),
+							'tags' => 'NAME="plugin_publish2email_use_bcc_field"',
+					     ),
+					array(
+							'label' => 'Send all emails as plain-text',
+							'type' => 'checkbox',
+							'value' => qa_opt('plugin_publish2email_plaintext_only'),
+							'tags' => 'NAME="plugin_publish2email_plaintext_only_field"',
+					     ),
+					array(
+							'label' => 'Theme for HTML emails:',
+							'type' => 'select',
+							'value' => @$themeoptions[qa_opt('plugin_publish2email_html_theme')],
+							'options' => $themeoptions,
+							'suffix' => 'This setting is ignored for plain-text emails',
+							'tags' => 'NAME="plugin_publish2email_html_theme_field"',
+					     ),
+					array(
+							'label' => 'Include dependent posts in email body (e.g. include questions when sending emails for answers)',
+							'type' => 'checkbox',
+							'value' => qa_opt('plugin_publish2email_show_trail'),
+							'tags' => 'NAME="plugin_publish2email_show_trail_field"',
+					     ),
+					),
 
-			'buttons' => array(
-				array(
-					'label' => 'Save Changes',
-					'tags' => 'NAME="plugin_publish2email_save_button"',
-				),
-			),
-		);
+					'buttons' => array(
+							array(
+								'label' => 'Save Changes',
+								'tags' => 'NAME="plugin_publish2email_save_button"',
+							     ),
+							),
+					);
 	}
 
 	function process_event($event, $userid, $handle, $cookieid, $params)
@@ -194,159 +194,180 @@ class qa_publish_to_email_event
 
 		switch ($event)
 		{
-		case 'q_post':
-			if (!qa_opt('plugin_publish2email_notify_q_post'))
-				return;
+			case 'q_post':
+				if (!qa_opt('plugin_publish2email_notify_q_post'))
+					return;
 
-			$subject = $subject_prefix.$params['title'];
-			$url = qa_q_path($params['postid'], $params['title'], true);
+				$subject = $subject_prefix.$params['title'];
+				$url = qa_q_path($params['postid'], $params['title'], true);
 
-			// fall through instead of breaking
-		case 'a_post':
-			// Explicitly check $event in case we fell through from q_post
-			if ($event === 'a_post' && !qa_opt('plugin_publish2email_notify_a_post'))
-				return;
+				// fall through instead of breaking
+			case 'a_post':
+				// Explicitly check $event in case we fell through from q_post
+				if ($event === 'a_post' && !qa_opt('plugin_publish2email_notify_a_post'))
+					return;
 
-			if (!isset($subject))
-				$subject = "RE: ".$subject_prefix.$params['parent']['title'];
+				if (!isset($subject))
+					$subject = "RE: ".$subject_prefix.$params['parent']['title'];
 
-			if (!isset($url))
-				$url = qa_q_path($params['parent']['postid'], $params['parent']['title'], true, 'A', $params['postid']);
+				if (!isset($url))
+					$url = qa_q_path($params['parent']['postid'], $params['parent']['title'], true, 'A', $params['postid']);
 
-			// fall through instead of breaking
-		case 'c_post':
-			// Explicitly check $event in case we fell through from q_post or a_post
-			if ($event === 'c_post' && !qa_opt('plugin_publish2email_notify_c_post'))
-				return;
+				// fall through instead of breaking
+			case 'c_post':
+				// Explicitly check $event in case we fell through from q_post or a_post
+				if ($event === 'c_post' && !qa_opt('plugin_publish2email_notify_c_post'))
+					return;
 
-			if (!isset($subject))
-				$subject = "RE: ".$subject_prefix.$params['question']['title'];
+				if (!isset($subject))
+					$subject = "RE: ".$subject_prefix.$params['question']['title'];
 
-			if (!isset($url))
-				$url = qa_q_path($params['question']['postid'], $params['question']['title'], true, 'C', $params['postid']);
+				if (!isset($url))
+					$url = qa_q_path($params['question']['postid'], $params['question']['title'], true, 'C', $params['postid']);
 
-			// Get the configured list of emails and split by commas/semi-colons (and possible whitespace)
-			$emails = preg_split('/[,;] */', qa_opt('plugin_publish2email_emails'), -1, PREG_SPLIT_NO_EMPTY);
-			$followers = follow_getfollowers($params['question']['postid'], "F");
-			$query = "select email from ^users where userid in ($)";
-			$result = qa_db_query_sub($query, implode(",", $followers));
-			$emails += qa_db_read_all_values($result);
-			if (count($emails) == 0)
-				return;
+				// Get the configured list of emails and split by commas/semi-colons (and possible whitespace)
+				$emails = preg_split('/[,;] */', qa_opt('plugin_publish2email_emails'), -1, PREG_SPLIT_NO_EMPTY);
+				$followers = follow_getfollowers($params['question']['postid'], "F");
+				$query = "select email from ^users where userid in ($)";
+				$result = qa_db_query_sub($query, implode(",", $followers));
+				$emails += qa_db_read_all_values($result);
+				if (count($emails) == 0)
+					return;
 
-			// Get the poster's info
-			$user=$this->qa_db_userinfo($userid);
+				// Get the poster's info
+				$user=$this->qa_db_userinfo($userid);
 
-			// Filter for emails that have this post's category as favorite
-			if (qa_opt('plugin_publish2email_fav_categories_only'))
-				$emails = $this->qa_db_favorite_category_emails($emails, $params['categoryid']);
+				// Filter for emails that have this post's category as favorite
+				if (qa_opt('plugin_publish2email_fav_categories_only'))
+					$emails = $this->qa_db_favorite_category_emails($emails, $params['categoryid']);
 
-			$mailer=new PHPMailer();
-			$mailer->CharSet='utf-8';
+				$mailer=new PHPMailer();
+				$mailer->CharSet='utf-8';
 
-                        $pfx = md5(qa_opt('site_name'));
-                        $emailParts = explode('@',qa_opt('from_email'));
-                        $sfx = "@".$emailParts[sizeof($emailParts)-1];
+				$pfx = md5(qa_opt('site_name'));
+				$emailParts = explode('@',qa_opt('from_email'));
+				$sfx = "@".$emailParts[sizeof($emailParts)-1];
 
-                        $msgID = $pfx . "." . $params['postid'] . $sfx;
+				$msgID = $pfx . "." . $params['postid'] . $sfx;
 
-                        if(isset($params['parentid'])) {
-                          $inReplyTo = $pfx . "." . $params['parentid'] . $sfx;
-                          $mailer->AddCustomHeader('In-Reply-To:'.$inReplyTo);
-                          $refList = array();
-                          if(isset($params['parenttype']) && strcmp($params['parenttype'],'A')==0) {
-                            $qRef = $pfx . "." . $params['questionid'] . $sfx;
-                            $refList[] = $qRef;
-                          }
-                          $refList[] = $inReplyTo;
-                          $mailer->AddCustomHeader('References:'.implode(',',$refList));
-                        }
-                        $mailer->MessageID=$msgID;
-			$mailer->Sender=qa_opt('from_email');
-			$mailer->From=(isset($user['email']) ? $user['email'] : qa_opt('from_email'));
-			$mailer->FromName=(isset($user['name']) ? $user['name'] : (isset($handle) ? $handle : qa_opt('site_title')));
-			$mailer->AddReplyTo(qa_opt('from_email'), qa_opt('site_title') . ' (Do Not Reply)');
-
-			// Explicitly add the Sender (aka the "On behalf of") header, since this version of phpmailer
-			// doesn't do it (it helps with defining folder rules)
-			$mailer->AddCustomHeader('Sender:'.qa_opt('from_email'));
-
-			if (qa_opt('plugin_publish2email_use_bcc'))
-			{
-				foreach ($emails as $email)
-				{
-					$mailer->AddBCC($email);
+				if(isset($params['parentid'])) {
+					$inReplyTo = $pfx . "." . $params['parentid'] . $sfx;
+					$mailer->AddCustomHeader('In-Reply-To:'.$inReplyTo);
+					$refList = array();
+					if(isset($params['parenttype']) && strcmp($params['parenttype'],'A')==0) {
+						$qRef = $pfx . "." . $params['questionid'] . $sfx;
+						$refList[] = $qRef;
+					}
+					$refList[] = $inReplyTo;
+					$mailer->AddCustomHeader('References:'.implode(',',$refList));
 				}
-			}
-			else
-			{
-				foreach ($emails as $email)
+				$mailer->MessageID=$msgID;
+				$mailer->Sender=qa_opt('from_email');
+				$mailer->From=(isset($user['email']) ? $user['email'] : qa_opt('from_email'));
+				$mailer->FromName=(isset($user['name']) ? $user['name'] : (isset($handle) ? $handle : qa_opt('site_title')));
+				$mailer->AddReplyTo(qa_opt('from_email'), qa_opt('site_title') . ' (Do Not Reply)');
+
+				// Explicitly add the Sender (aka the "On behalf of") header, since this version of phpmailer
+				// doesn't do it (it helps with defining folder rules)
+				$mailer->AddCustomHeader('Sender:'.qa_opt('from_email'));
+
+				if (qa_opt('plugin_publish2email_use_bcc'))
 				{
-					$mailer->AddAddress($email);
+					foreach ($emails as $email)
+					{
+						$mailer->AddBCC($email);
+					}
 				}
-			}
-
-			$mailer->Subject=$subject;
-
-
-			// If any of the posts that need to be put in the body are HTML, make everything HTML
-			$isanyposthtml=($params['format'] === 'html');
-			if (qa_opt('plugin_publish2email_show_trail'))
-			{
-				switch ($event)
+				else
 				{
-				case 'c_post':
-					// For comments, check both the parent and the question
-					// (which might be the same post, but it doesn't change the result)
-					$isanyposthtml=$isanyposthtml || ($params['question']['format'] === 'html');
-					// fall through
-				case 'a_post':
-					// For answers, just check the parent, which is the question
-					$isanyposthtml=$isanyposthtml || ($params['parent']['format'] === 'html');
-					break;
+					foreach ($emails as $email)
+					{
+						$mailer->AddAddress($email);
+					}
 				}
-			}
 
-			$ishtml=($isanyposthtml && !qa_opt('plugin_publish2email_plaintext_only'));
+				$mailer->Subject=$subject;
 
-			// Add the body and add a plaintext AltBody for HTML emails
-			$mailer->IsHTML($ishtml);
-			$mailer->Body=$this->qa_build_body($event, $url, $params, $ishtml);
-			if ($ishtml)
-				$mailer->AltBody=$this->qa_build_body($event, $url, $params, false);
 
-			if (qa_opt('smtp_active'))
-			{
-				$mailer->IsSMTP();
-				$mailer->Host=qa_opt('smtp_address');
-				$mailer->Port=qa_opt('smtp_port');
-			}
+				// If any of the posts that need to be put in the body are HTML, make everything HTML
+				$isanyposthtml=($params['format'] === 'html');
+				if (qa_opt('plugin_publish2email_show_trail'))
+				{
+					switch ($event)
+					{
+						case 'c_post':
+							// For comments, check both the parent and the question
+							// (which might be the same post, but it doesn't change the result)
+							$isanyposthtml=$isanyposthtml || ($params['question']['format'] === 'html');
+							// fall through
+						case 'a_post':
+							// For answers, just check the parent, which is the question
+							$isanyposthtml=$isanyposthtml || ($params['parent']['format'] === 'html');
+							break;
+					}
+				}
 
-			if (qa_opt('smtp_secure'))
-				$mailer->SMTPSecure=qa_opt('smtp_secure');
+				$ishtml=($isanyposthtml && !qa_opt('plugin_publish2email_plaintext_only'));
 
-			if (qa_opt('smtp_authenticate'))
-			{
-				$mailer->SMTPAuth=true;
-				$mailer->Username=qa_opt('smtp_username');
-				$mailer->Password=qa_opt('smtp_password');
-			}
+				// Add the body and add a plaintext AltBody for HTML emails
+				$mailer->IsHTML($ishtml);
+				$mailer->Body=$this->qa_build_body($event, $url, $params, $ishtml);
+				if ($ishtml)
+					$mailer->AltBody=$this->qa_build_body($event, $url, $params, false);
 
-			$mailer->Send();
+				if (qa_opt('smtp_active'))
+				{
+					$mailer->IsSMTP();
+					$mailer->Host=qa_opt('smtp_address');
+					$mailer->Port=qa_opt('smtp_port');
+				}
+
+				if (qa_opt('smtp_secure'))
+					$mailer->SMTPSecure=qa_opt('smtp_secure');
+
+				if (qa_opt('smtp_authenticate'))
+				{
+					$mailer->SMTPAuth=true;
+					$mailer->Username=qa_opt('smtp_username');
+					$mailer->Password=qa_opt('smtp_password');
+				}
+
+				$mailer->Send();
 		}
 	}
+
+	function init_queries($tableslc) {
+		require_once QA_INCLUDE_DIR."db/selects.php";
+		$queries = array();
+		if(qa_opt('qa_follow_enabled'))
+		{
+			$tablename=qa_db_add_table_prefix('postfollowers');
+			if(!in_array($tablename, $tableslc)) {
+				$queries[] = "
+					CREATE TABLE `$tablename` (
+							`postid` int(11) NOT NULL,
+							`userids` text,
+							`followtype` char(1) DEFAULT NULL,
+							PRIMARY KEY (`postid`)
+							)";
+			}
+		}
+		return $queries;
+	}
+
+
 
 	function qa_db_userinfo($userid)
 	{
 		require_once QA_INCLUDE_DIR.'qa-db-selects.php';
 
 		list($user,$useremail) = qa_db_select_with_pending(
-			qa_db_user_profile_selectspec($userid, true),
-			array(
-				'columns' => array('email' => '^users.email'),
-				'source' => "^users WHERE ^users.userid=$",
-				'arguments' => array($userid),
-			));
+				qa_db_user_profile_selectspec($userid, true),
+				array(
+					'columns' => array('email' => '^users.email'),
+					'source' => "^users WHERE ^users.userid=$",
+					'arguments' => array($userid),
+				     ));
 		$user['email'] = @$useremail[0]['email'];
 
 		return $user;
@@ -358,10 +379,10 @@ class qa_publish_to_email_event
 		require_once QA_INCLUDE_DIR.'qa-db-selects.php';
 
 		return qa_db_select_with_pending(array(
-			'columns' => array('email' => 'DISTINCT ^users.email'),
-			'source' => "^users JOIN ^userfavorites USING (userid) WHERE ^users.email IN ($) AND ^userfavorites.entityid=$ AND ^userfavorites.entitytype=$",
-			'arguments' => array($emails, $categoryid, QA_ENTITY_CATEGORY),
-		));
+					'columns' => array('email' => 'DISTINCT ^users.email'),
+					'source' => "^users JOIN ^userfavorites USING (userid) WHERE ^users.email IN ($) AND ^userfavorites.entityid=$ AND ^userfavorites.entitytype=$",
+					'arguments' => array($emails, $categoryid, QA_ENTITY_CATEGORY),
+					));
 	}
 
 	function qa_format_post($params, $ishtml)
@@ -415,25 +436,25 @@ class qa_publish_to_email_event
 		{
 			switch ($event)
 			{
-			case 'a_post':
-				$body.=$this->qa_format_header('The above was an answer to this question:', $params['parent']['title'], $ishtml);
-				$body.=$this->qa_format_post($params['parent'], $ishtml);
-				break;
-			case 'c_post':
-				if ($params['parent']['type'] == 'Q')
-				{
-					$body.=$this->qa_format_header('The above was a comment on this question:', $params['parent']['title'], $ishtml);
+				case 'a_post':
+					$body.=$this->qa_format_header('The above was an answer to this question:', $params['parent']['title'], $ishtml);
 					$body.=$this->qa_format_post($params['parent'], $ishtml);
-				}
-				else
-				{
-					$body.=$this->qa_format_header('The above was a comment on this answer:', '', $ishtml);
-					$body.=$this->qa_format_post($params['parent'], $ishtml);
+					break;
+				case 'c_post':
+					if ($params['parent']['type'] == 'Q')
+					{
+						$body.=$this->qa_format_header('The above was a comment on this question:', $params['parent']['title'], $ishtml);
+						$body.=$this->qa_format_post($params['parent'], $ishtml);
+					}
+					else
+					{
+						$body.=$this->qa_format_header('The above was a comment on this answer:', '', $ishtml);
+						$body.=$this->qa_format_post($params['parent'], $ishtml);
 
-					$body.=$this->qa_format_header('Original question:', $params['question']['title'], $ishtml);
-					$body.=$this->qa_format_post($params['question'], $ishtml);
-				}
-				break;
+						$body.=$this->qa_format_header('Original question:', $params['question']['title'], $ishtml);
+						$body.=$this->qa_format_post($params['question'], $ishtml);
+					}
+					break;
 			}
 		}
 
@@ -444,7 +465,7 @@ class qa_publish_to_email_event
 			$body.='</div></body>';
 
 			if (file_exists($themefile=QA_THEME_DIR.qa_opt('plugin_publish2email_html_theme').'/qa-styles.css') ||
-			    file_exists($themefile=QA_PLUGIN_DIR.'qa-publish-to-email/custom-styles/'.qa_opt('plugin_publish2email_html_theme')))
+					file_exists($themefile=QA_PLUGIN_DIR.'qa-publish-to-email/custom-styles/'.qa_opt('plugin_publish2email_html_theme')))
 			{
 				$body.='<footer><style>'.file_get_contents($themefile);
 				$body.='div.publish2email-body {margin:20px; text-align:left;}';
@@ -460,5 +481,5 @@ class qa_publish_to_email_event
 };
 
 /*
-	Omit PHP closing tag to help avoid accidental output
-*/
+   Omit PHP closing tag to help avoid accidental output
+ */
