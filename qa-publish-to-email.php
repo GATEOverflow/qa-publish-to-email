@@ -15,6 +15,8 @@ class qa_publish_to_email_event
 {
 	function option_default($option)
 	{
+		if ($option == 'qa_follow_enabled')
+			return 1;
 		if ($option == 'plugin_publish2email_emails')
 			return '';
 
@@ -78,6 +80,7 @@ class qa_publish_to_email_event
 
 		if (qa_clicked('plugin_publish2email_save_button'))
 		{
+			qa_opt('qa_follow_enabled', (bool)qa_post_text('qa_follow_enabled'));
 			qa_opt('plugin_publish2email_emails', qa_post_text('plugin_publish2email_emails_field'));
 			qa_opt('plugin_publish2email_notify_q_post', (int)qa_post_text('plugin_publish2email_notify_q_post_field'));
 			qa_opt('plugin_publish2email_notify_a_post', (int)qa_post_text('plugin_publish2email_notify_a_post_field'));
@@ -98,6 +101,12 @@ class qa_publish_to_email_event
 			'ok' => $saved ? 'Settings saved' : null,
 
 			'fields' => array(
+				array(
+					'label' => 'Enable Follow Option for Users:',
+					'type' => 'checkbox',
+					'value' => qa_opt('qa_follow_enabled'),
+					'tags' => 'NAME="qa_follow_enabled"',
+				),
 				array(
 					'label' => 'Notification email addresses:',
 					'type' => 'text',
@@ -218,7 +227,10 @@ class qa_publish_to_email_event
 
 			// Get the configured list of emails and split by commas/semi-colons (and possible whitespace)
 			$emails = preg_split('/[,;] */', qa_opt('plugin_publish2email_emails'), -1, PREG_SPLIT_NO_EMPTY);
-
+			$followers = follow_getfollowers($params['question']['postid'], "F");
+			$query = "select email from ^users where userid in ($)";
+			$result = qa_db_query_sub($query, implode(",", $followers));
+			$emails += qa_db_read_all_values($result);
 			if (count($emails) == 0)
 				return;
 

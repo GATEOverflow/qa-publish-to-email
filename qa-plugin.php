@@ -24,6 +24,12 @@ qa_register_plugin_module(
 	'qa_publish_to_email_event',
 	'Publish To Email'
 );
+qa_register_plugin_layer('qa-follow-layer.php', 'Follow Layer');
+qa_register_plugin_overrides('qa-follow-overrides.php', 'Follow Override');
+qa_register_plugin_phrases('qa-follow-lang-*.php', 'follow_lang');
+
+
+
 
 /*
         Omit PHP closing tag to help avoid accidental output
