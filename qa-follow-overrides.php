@@ -29,6 +29,7 @@ function qa_check_page_clicks()
 				$followers = follow_getfollowers($postid, "F");
 	//			$unfollowers = qa_follow_getfollowers($postid, "U");
 				$userid = qa_get_logged_in_userid();
+				if(!$followers) $followers=array();
 				if(!in_array($userid, $followers))
 				{
 					$followers[] = $userid;

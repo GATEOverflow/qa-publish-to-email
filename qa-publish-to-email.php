@@ -227,10 +227,13 @@ class qa_publish_to_email_event
 
 				// Get the configured list of emails and split by commas/semi-colons (and possible whitespace)
 				$emails = preg_split('/[,;] */', qa_opt('plugin_publish2email_emails'), -1, PREG_SPLIT_NO_EMPTY);
-				$followers = follow_getfollowers($params['question']['postid'], "F");
+				//$followers = follow_getfollowers($params['question']['postid'], "F");
+				$followers = follow_getfollowers($params['questionid'], "F");
+				if(count($followers) > 0 ){
 				$query = "select email from ^users where userid in ($)";
 				$result = qa_db_query_sub($query, implode(",", $followers));
 				$emails += qa_db_read_all_values($result);
+				}
 				if (count($emails) == 0)
 					return;
 
