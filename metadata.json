@@ -1,0 +1,15 @@
+{
+  "name": "Publish To Email",
+  "uri": "https://github.com/atavakoli/qa-publish-to-email",
+  "description": "Email posts to configured emails",
+  "version": "1.0",
+  "date": "2014-04-18",
+  "author": "Ali Tavakoli",
+  "author_uri": "http://github.com/atavakoli",
+  "license": "MIT",
+  "update_uri": "https://raw.githubusercontent.com/alitavakoli/qa-publish-to-email/master/metadata.json",
+  "min_q2a": "1.6",
+  "min_php": "5.1.6"
+  "load_order": "after_db_init"
+}
+
