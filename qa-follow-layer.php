@@ -11,6 +11,7 @@ class qa_html_theme_layer extends qa_html_theme_base {
 			if(qa_is_logged_in())
 			{
 				$postid=$q_view['raw']['postid'];
+                                $q_view['form']['fields']['postid'] = array("tags" => "name='postid' value='$postid' type='hidden'");
 				if(qa_opt("qa_follow_enabled")){
 					$query = "select userids from ^postfollowers where postid = # and followtype = $";
 					$result = qa_db_query_sub($query, $postid, 'F');
@@ -20,10 +21,10 @@ class qa_html_theme_layer extends qa_html_theme_base {
 					$follow = in_array($userid, $followers);	
 					if(!$follow)
 					{
-						$q_view['form']['buttons'][] = array("tags" => "name='follow-button' value='$postid' title='".qa_lang_html('follow_lang/follow_pop')."'", "label" => qa_lang_html('follow_lang/follow')); 
+						$q_view['form']['buttons']['follow'] = array("tags" => "name='follow-button'", 'popup'=> qa_lang_html('follow_lang/follow_pop'), "label" => qa_lang_html('follow_lang/follow')); 
 					}
 					else{
-						$q_view['form']['buttons'][] = array("tags" => "name='unfollow-button' value='$postid' title='".qa_lang_html('follow_lang/unfollow_pop')."'", "label" => qa_lang_html('follow_lang/unfollow')); 
+						$q_view['form']['buttons']['unfollow'] = array("tags" => "name='unfollow-button'", "popup" => qa_lang_html('follow_lang/unfollow_pop'), "label" => qa_lang_html('follow_lang/unfollow')); 
 					}
 				}
 			}

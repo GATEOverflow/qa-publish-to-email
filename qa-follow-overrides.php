@@ -23,9 +23,9 @@ function qa_check_page_clicks()
 	if ( qa_is_http_post() ) {
 		if(qa_opt('qa_follow_enabled') && qa_is_logged_in())
 		{
+			$postid = $_POST['postid'];	
 			if(isset($_POST['follow-button'])  )
 			{
-				$postid = $_POST['follow-button'];	
 				$followers = follow_getfollowers($postid, "F");
 	//			$unfollowers = qa_follow_getfollowers($postid, "U");
 				$userid = qa_get_logged_in_userid();
@@ -39,7 +39,6 @@ function qa_check_page_clicks()
 			}
 			if(isset($_POST['unfollow-button'])  )
 			{
-				$postid = $_POST['unfollow-button'];	
 				$followers = follow_getfollowers($postid, "F");
 				$userid = qa_get_logged_in_userid();
 				$key = array_search($userid,$followers);
